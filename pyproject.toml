@@ -1,0 +1,53 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "solarpulse"
+version = "0.1.0"
+description = "Decentralized Convex Microgrid Optimal Battery Dispatch & Carbon-Aware Power Flow Engine"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [
+  { name = "Ayush Kandwal", email = "ayushkandwal2007@gmail.com" },
+]
+keywords = [
+  "microgrid",
+  "convex-optimization",
+  "battery-dispatch",
+  "renewable-energy",
+  "mpc",
+  "smart-grid",
+  "carbon-aware",
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Topic :: Scientific/Engineering :: Mathematics",
+]
+dependencies = [
+  "numpy>=1.24",
+  "scipy>=1.10",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "pytest-cov>=4.0"]
+
+[project.scripts]
+solarpulse-demo = "solarpulse.demo:main"
+
+[project.urls]
+Homepage = "https://github.com/Sunzzx/solarpulse-microgrid-convex-dispatch-engine"
+Repository = "https://github.com/Sunzzx/solarpulse-microgrid-convex-dispatch-engine"
+Issues = "https://github.com/Sunzzx/solarpulse-microgrid-convex-dispatch-engine/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["solarpulse"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"
